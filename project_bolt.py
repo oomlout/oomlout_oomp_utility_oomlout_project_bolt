@@ -91,8 +91,8 @@ def get_name(details, deets, directory_absolute):
     details["oomlout_bolt_head_type_diagram"] = "head_type_diagram.svg"
     file_base = os.path.dirname(__file__)
     file_source = f"template/head_type_diagram_{head_type_source}.svg"    
-    file_source = os.join.path(file_base, file_source)
-    file_destination = os.join.path(directory_absolute, "head_type_diagram.svg")
+    file_source = os.path.join(file_base, file_source)
+    file_destination = os.path.join(directory_absolute, "head_type_diagram.svg")
     print(f"    copying {file_source} to {file_destination}")
     shutil.copyfile(file_source, file_destination)
 
