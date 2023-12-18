@@ -54,8 +54,13 @@ def get_name(details, deets, directory_absolute):
     file_source = f"template/type_diagram_{typ_source}.svg"    
     file_source = os.path.join(file_base, file_source)
     file_destination = os.path.join(directory_absolute, "type_diagram.svg")
-    print(f"    copying {file_source} to {file_destination}")
-    shutil.copyfile(file_source, file_destination)
+    if os.path.exists(file_source):
+        if os.path.exists(file_destination):
+            os.remove(file_destination)
+        print(f"    copying {file_source} to {file_destination}")
+        shutil.copyfile(file_source, file_destination)
+    else:
+        print(f"    {file_source} not found")
 
     # get the size
     size_source = deets["size"]
@@ -102,7 +107,12 @@ def get_name(details, deets, directory_absolute):
     file_source = os.path.join(file_base, file_source)
     file_destination = os.path.join(directory_absolute, "head_type_diagram.svg")
     print(f"    copying {file_source} to {file_destination}")
-    shutil.copyfile(file_source, file_destination)
+    if os.path.exists(file_source):
+        if os.path.exists(file_destination):
+            os.remove(file_destination)
+        shutil.copyfile(file_source, file_destination)
+    else:
+        print(f"    {file_source} not found")
 
     oomlout_bolt_name = f"{typ} {size}X{length} {color} ({head_type})"
     details["oomlout_bolt_name"] = oomlout_bolt_name    
