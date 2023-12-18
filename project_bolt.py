@@ -1,4 +1,5 @@
-
+import os
+import shutil
 
 
 def main(**kwargs):
@@ -22,8 +23,7 @@ def main(**kwargs):
 
     if run:
         print(f"    generating for {directory_absolute}")
-        details = get_name(details, deets)
-        details = get_filenames(details, deets)
+        details = get_name(details, deets, directory_absolute)        
         return details
 
 
@@ -32,7 +32,7 @@ def get_filenames(details, deets):
     return details
 
 
-def get_name(details, deets):
+def get_name(details, deets, directory_absolute):
 
     oomlout_bolt_name = ""
 
@@ -48,6 +48,7 @@ def get_name(details, deets):
         if match[0] in typ_source:
             typ = match[1]
     details["oomlout_bolt_type"] = typ
+    details["oomlout_bolt_type_diagram_diagram"] = "type_diagram.svg"
 
     # get the size
     size_source = deets["size"]
@@ -87,6 +88,13 @@ def get_name(details, deets):
         if match[0] in head_type_source:
             head_type = match[1]
     details["oomlout_bolt_head_type"] = head_type
+    details["oomlout_bolt_head_type_diagram"] = "head_type_diagram.svg"
+    file_base = os.path.dirname(__file__)
+    file_source = f"template/head_type_diagram_{head_type_source}.svg"    
+    file_source = os.join.path(file_base, file_source)
+    file_destination = os.join.path(directory_absolute, "head_type_diagram.svg")
+    print(f"    copying {file_source} to {file_destination}")
+    shutil.copyfile(file_source, file_destination)
 
     oomlout_bolt_name = f"{typ} {size}X{length} {color} ({head_type})"
     details["oomlout_bolt_name"] = oomlout_bolt_name    
