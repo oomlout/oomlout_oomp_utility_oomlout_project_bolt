@@ -88,6 +88,7 @@ def get_name(details, deets, directory_absolute):
         length = length_source.replace("_mm","")
         length = f"{length} mm"
     details["oomlout_bolt_length"] = length
+    details["oomlout_bolt_length_no_unit"] = length.replace(" mm","")
 
     # head_type
     head_type_source = deets["description_extra"]    
