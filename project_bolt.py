@@ -50,14 +50,14 @@ def get_name(details, deets, directory_absolute):
     for match in typ_matches:
         if match[0] in typ_source:
             typ = match[1]
-    details["oomlout_bolt_type"] = typ
-    details["oomlout_bolt_type_diagram_diagram"] = "type_diagram.svg"
+    details["oomlout_bolt_type"] = typ    
     # file copy
     file_base = os.path.dirname(__file__)
     file_source = f"template/type_diagram_{typ_source}.svg"    
     file_source = os.path.join(file_base, file_source)
     file_destination = os.path.join(directory_absolute, "type_diagram.svg")
     if os.path.exists(file_source):
+        details["oomlout_bolt_type_diagram_diagram"] = "type_diagram.svg"
         if os.path.exists(file_destination):
             os.remove(file_destination)
         print(f"    copying {file_source} to {file_destination}")
@@ -104,7 +104,7 @@ def get_name(details, deets, directory_absolute):
         if match[0] in head_type_source:
             head_type = match[1]
     details["oomlout_bolt_head_type"] = head_type
-    details["oomlout_bolt_head_type_diagram"] = "head_type_diagram.svg"
+    
     ## copy file
     file_base = os.path.dirname(__file__)
     file_source = f"template/head_type_diagram_{head_type_source}.svg"    
@@ -112,6 +112,7 @@ def get_name(details, deets, directory_absolute):
     file_destination = os.path.join(directory_absolute, "head_type_diagram.svg")
     print(f"    copying {file_source} to {file_destination}")
     if os.path.exists(file_source):
+        details["oomlout_bolt_head_type_diagram"] = "head_type_diagram.svg"
         if os.path.exists(file_destination):
             os.remove(file_destination)
         shutil.copyfile(file_source, file_destination)
