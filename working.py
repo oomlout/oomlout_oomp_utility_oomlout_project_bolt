@@ -26,7 +26,7 @@ def main(**kwargs):
     folder = folder.replace("\\","/")
     
     kwargs["configuration"] = configuration
-    print(f"running utility for: {folder}")
+    print(f"running utility oomlout_oomp_utiltiy_project_bolt for: {folder}")
     create_recursive(**kwargs)
 
 def create_recursive(**kwargs):
@@ -83,6 +83,8 @@ def generate(**kwargs):
             #write back to yaml file
             with open(yaml_file, 'w') as outfile:
                 yaml.dump(details, outfile, default_flow_style=False)
+        else:   
+            print(".", end="")
         
 
 

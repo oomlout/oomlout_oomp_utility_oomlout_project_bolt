@@ -49,6 +49,13 @@ def get_name(details, deets, directory_absolute):
             typ = match[1]
     details["oomlout_bolt_type"] = typ
     details["oomlout_bolt_type_diagram_diagram"] = "type_diagram.svg"
+    # file copy
+    file_base = os.path.dirname(__file__)
+    file_source = f"template/type_diagram_{typ_source}.svg"    
+    file_source = os.path.join(file_base, file_source)
+    file_destination = os.path.join(directory_absolute, "type_diagram.svg")
+    print(f"    copying {file_source} to {file_destination}")
+    shutil.copyfile(file_source, file_destination)
 
     # get the size
     size_source = deets["size"]
@@ -89,6 +96,7 @@ def get_name(details, deets, directory_absolute):
             head_type = match[1]
     details["oomlout_bolt_head_type"] = head_type
     details["oomlout_bolt_head_type_diagram"] = "head_type_diagram.svg"
+    ## copy file
     file_base = os.path.dirname(__file__)
     file_source = f"template/head_type_diagram_{head_type_source}.svg"    
     file_source = os.path.join(file_base, file_source)
