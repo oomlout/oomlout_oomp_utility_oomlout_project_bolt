@@ -2,6 +2,7 @@
 
 
 def main(details):
+    directory_absolute = details["directory_absolute"]
     deets_order = ["classification", "type", "size", "color", "description_main", "description_extra", "manufacturer", "part_number"]
     deets = {}
     for deet in deets_order:
@@ -19,6 +20,7 @@ def main(details):
             run = True
 
     if run:
+        print(f"    generating for {directory_absolute}")
         details = get_name(details, deets)
         details = get_filenames(details, deets)
 
