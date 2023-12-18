@@ -23,8 +23,7 @@ def main(details):
         print(f"    generating for {directory_absolute}")
         details = get_name(details, deets)
         details = get_filenames(details, deets)
-
-    return details
+        return details
 
 
 def get_filenames(details, deets):

@@ -65,8 +65,7 @@ def generate(**kwargs):
             print(exc)
     kwargs["details"] = details
 
-    if details != {}:        
-        print(f"    generating for {directory_absolute}")
+    if details != {}:                
         #import from this folder
         # impotoomp_word from this files directory even if that isn't the cwd
         import sys
@@ -79,10 +78,10 @@ def generate(**kwargs):
 
 
         
-
-        #write back to yaml file
-        with open(yaml_file, 'w') as outfile:
-            yaml.dump(details, outfile, default_flow_style=False)
+        if details != None:
+            #write back to yaml file
+            with open(yaml_file, 'w') as outfile:
+                yaml.dump(details, outfile, default_flow_style=False)
         
 
 
