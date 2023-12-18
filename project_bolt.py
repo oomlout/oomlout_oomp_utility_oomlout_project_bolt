@@ -14,6 +14,9 @@ def main(**kwargs):
     # check whether to run
     matches_type = []
     matches_type.append("screw_socket_cap")
+    matches_type.append("screw_countersunk")
+    matches_type.append("bolt")
+    matches_type.append("set_screw")
 
     typ = deets["type"]
     run = False
