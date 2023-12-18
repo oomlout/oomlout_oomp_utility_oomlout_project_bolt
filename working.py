@@ -53,6 +53,7 @@ def create(**kwargs):
 
 def generate(**kwargs):    
     directory_absolute = kwargs.get("directory_absolute", os.getcwd())
+    kwargs["directory_absolute"] = directory_absolute
     folder = kwargs.get("folder", os.getcwd())
     yaml_file = os.path.join(directory_absolute, "working.yaml")
     kwargs["yaml_file"] = yaml_file
