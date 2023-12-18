@@ -74,7 +74,7 @@ def generate(**kwargs):
         import project_bolt
         
         ##### process part here
-        details = project_bolt.main(details)
+        details = project_bolt.main(**kwargs)
 
 
 

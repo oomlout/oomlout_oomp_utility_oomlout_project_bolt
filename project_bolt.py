@@ -1,8 +1,9 @@
 
 
 
-def main(details):
-    directory_absolute = details["directory_absolute"]
+def main(**kwargs):
+    directory_absolute = kwargs["directory_absolute"]
+    details = kwargs["details"]
     deets_order = ["classification", "type", "size", "color", "description_main", "description_extra", "manufacturer", "part_number"]
     deets = {}
     for deet in deets_order:
