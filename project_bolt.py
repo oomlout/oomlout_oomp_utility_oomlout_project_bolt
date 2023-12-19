@@ -26,7 +26,7 @@ def main(**kwargs):
 
     if run:
         print(f"    generating for {directory_absolute}")
-        details = get_name(details, deets, directory_absolute)        
+        details = get_name_screw(details, deets, directory_absolute)        
         return details
 
 
@@ -35,13 +35,14 @@ def get_filenames(details, deets):
     return details
 
 
-def get_name(details, deets, directory_absolute):
+def get_name_screw(details, deets, directory_absolute):
 
     oomlout_bolt_name = ""
 
     # get the type
     typ_source = deets["type"]
     typ_matches = []
+    typ_matches.append(["screw_machine_screw","Machine Screw"])
     typ_matches.append(["screw_socket_cap","Socket Cap"])
     typ_matches.append(["screw_countersunk","Countersunk"])
     typ_matches.append(["bolt","Bolt"])
@@ -53,11 +54,11 @@ def get_name(details, deets, directory_absolute):
     details["oomlout_bolt_type"] = typ    
     # file copy
     file_base = os.path.dirname(__file__)
-    file_source = f"template/type_diagram_{typ_source}.svg"    
+    file_source = f"template/type_diagram_{typ_source}.png"    
     file_source = os.path.join(file_base, file_source)
-    file_destination = os.path.join(directory_absolute, "type_diagram.svg")
+    file_destination = os.path.join(directory_absolute, "type_diagram.png")
     if os.path.exists(file_source):
-        details["oomlout_bolt_type_diagram_diagram"] = "type_diagram.svg"
+        details["oomlout_bolt_type_diagram_diagram"] = "type_diagram.png"
         if os.path.exists(file_destination):
             os.remove(file_destination)
         print(f"    copying {file_source} to {file_destination}")
@@ -98,6 +99,7 @@ def get_name(details, deets, directory_absolute):
     head_type_matches = []
     head_type_matches.append(["flat_head","Flat"])
     head_type_matches.append(["phillips_head","Phillips"])
+    head_type_matches.append(["pozidrive_head","Pozidrive"])
     head_type_matches.append(["hex_head","Hex"])
     head_type = "Bolt"
     for match in head_type_matches:
@@ -107,12 +109,12 @@ def get_name(details, deets, directory_absolute):
     
     ## copy file
     file_base = os.path.dirname(__file__)
-    file_source = f"template/head_type_diagram_{head_type_source}.svg"    
+    file_source = f"template/head_type_diagram_{head_type_source}.png"    
     file_source = os.path.join(file_base, file_source)
-    file_destination = os.path.join(directory_absolute, "head_type_diagram.svg")
+    file_destination = os.path.join(directory_absolute, "head_type_diagram.png")
     print(f"    copying {file_source} to {file_destination}")
     if os.path.exists(file_source):
-        details["oomlout_bolt_head_type_diagram"] = "head_type_diagram.svg"
+        details["oomlout_bolt_head_type_diagram"] = "head_type_diagram.png"
         if os.path.exists(file_destination):
             os.remove(file_destination)
         shutil.copyfile(file_source, file_destination)
