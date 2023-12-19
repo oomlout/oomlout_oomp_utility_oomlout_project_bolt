@@ -7,27 +7,28 @@ def main(**kwargs):
     details = kwargs["details"]
     deets_order = ["classification", "type", "size", "color", "description_main", "description_extra", "manufacturer", "part_number"]
     deets = {}
-    for deet in deets_order:
-        if deet in details:
-            deets[deet] = details[deet]
-    
-    # check whether to run
-    matches_type = []
-    matches_type.append("screw_socket_cap")
-    matches_type.append("screw_countersunk")
-    matches_type.append("bolt")
-    matches_type.append("set_screw")
+    if details != None:
+        for deet in deets_order:
+            if deet in details:
+                deets[deet] = details[deet]
+        
+        # check whether to run
+        matches_type = []
+        matches_type.append("screw_socket_cap")
+        matches_type.append("screw_countersunk")
+        matches_type.append("bolt")
+        matches_type.append("set_screw")
 
-    typ = deets["type"]
-    run = False
-    for match in matches_type:
-        if match in typ:
-            run = True
+        typ = deets["type"]
+        run = False
+        for match in matches_type:
+            if match in typ:
+                run = True
 
-    if run:
-        print(f"    generating for {directory_absolute}")
-        details = get_name_screw(details, deets, directory_absolute)        
-        return details
+        if run:
+            print(f"    generating for {directory_absolute}")
+            details = get_name_screw(details, deets, directory_absolute)        
+            return details
 
 
 def get_filenames(details, deets):
