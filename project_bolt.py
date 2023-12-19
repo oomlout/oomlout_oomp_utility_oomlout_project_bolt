@@ -16,8 +16,10 @@ def main(**kwargs):
         matches_type = []
         matches_type.append("screw_socket_cap")
         matches_type.append("screw_countersunk")
+        matches_type.append("screw_flat_head")
         matches_type.append("bolt")
         matches_type.append("set_screw")
+        matches_type.append("spacer")
 
         typ = deets["type"]
         run = False
@@ -46,8 +48,10 @@ def get_name_screw(details, deets, directory_absolute):
     typ_matches.append(["screw_machine_screw","Machine Screw"])
     typ_matches.append(["screw_socket_cap","Socket Cap"])
     typ_matches.append(["screw_countersunk","Countersunk"])
+    typ_matches.append(["screw_flat_head","Flat Head"])
     typ_matches.append(["bolt","Bolt"])
     typ_matches.append(["set_screw","Set Screw"])
+    typ_matches.append(["spacer","Spacer"])
     typ =""
     for match in typ_matches:
         if match[0] in typ_source:
@@ -70,7 +74,12 @@ def get_name_screw(details, deets, directory_absolute):
     # get the size
     size_source = deets["size"]
     size = ""
-    if "_mm" in size_source:
+    if "_mm_id" in size_source:
+        size = size_source.replace("_mm_id","X")
+        size = size_source.replace("_mm_od","")
+        size = f"M{size}"
+        details["oomlout_bolt_size_long"] = size
+    elif "_mm" in size_source:
         size = size_source.replace("_mm","")
         size = f"M{size}"
     details["oomlout_bolt_size"] = size
