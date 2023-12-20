@@ -76,13 +76,13 @@ def get_name_screw(details, deets, directory_absolute):
     size = ""
     if "_mm_id" in size_source:
         size = size_source.replace("_mm_id","X")
-        size = size_source.replace("_mm_od","")
+        size = size.replace("_mm_od","")
         size = f"M{size}"
         details["oomlout_bolt_size_long"] = size
     elif "_mm" in size_source:
         size = size_source.replace("_mm","")
         size = f"M{size}"
-    details["oomlout_bolt_size"] = size
+        details["oomlout_bolt_size"] = size
 
     # get the color
     color_source = deets["color"]
