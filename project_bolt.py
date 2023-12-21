@@ -30,12 +30,19 @@ def main(**kwargs):
         if run:
             print(f"    generating for {directory_absolute}")
             details = get_name_screw(details, deets, directory_absolute)        
+            details = get_md5_split(details, deets)
             return details
 
 
-def get_filenames(details, deets):
-
+def get_md5_split(details, deets):
+    md5_6 = deets["md5_6"]
+    md5_6_first_3 = md5_6[0:3]
+    details["oomlout_bolt_md5_6_first_3"] = md5_6_first_3
+    md5_6_last_3 = md5_6[3:]
+    details["oomlout_bolt_md5_6_last_3"] = md5_6_last_3
     return details
+
+
 
 
 def get_name_screw(details, deets, directory_absolute):
@@ -74,8 +81,8 @@ def get_name_screw(details, deets, directory_absolute):
     # get the size
     size_source = deets["size"]
     size = ""
-    if "_mm_id" in size_source:
-        size = size_source.replace("_mm_id_","X")
+    if typ_source == "spacer":
+        size = size_source.replace("_id_","X")
         size = size.replace("_mm_od","")
         size = f"M{size}"
         details["oomlout_bolt_size_long"] = size
