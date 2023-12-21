@@ -97,7 +97,8 @@ def get_name_screw(details, deets, directory_absolute):
         size = f"{size}".upper()
         details["oomlout_bolt_size_long"] = size
         details["oomlout_bolt_size"] = ""
-    elif "_mm" in size_source:
+    #if size_source starts with an m an dthe next charachter is a digit
+    elif size_source.startswith("m") and size_source[1].isdigit():
         size = size_source.replace("_mm","")
         size = f"{size}".upper()
         details["oomlout_bolt_size"] = size
