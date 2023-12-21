@@ -34,9 +34,9 @@ def create_recursive(**kwargs):
     kwargs["folder"] = folder
     #if folder exists
     filter = kwargs.get("filter", "")
-    if os.path.exists(folder):
-        if filter in folder:
-            for item in os.listdir(folder):
+    if os.path.exists(folder):        
+        for item in os.listdir(folder):
+            if filter in item:
                 directory_absolute = os.path.join(folder, item)
                 directory_absolute = directory_absolute.replace("\\","/")
                 if os.path.isdir(directory_absolute):
