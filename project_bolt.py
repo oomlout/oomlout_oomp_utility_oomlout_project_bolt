@@ -75,7 +75,7 @@ def get_name_screw(details, deets, directory_absolute):
     size_source = deets["size"]
     size = ""
     if "_mm_id" in size_source:
-        size = size_source.replace("_mm_id","X")
+        size = size_source.replace("_mm_id_","X")
         size = size.replace("_mm_od","")
         size = f"M{size}"
         details["oomlout_bolt_size_long"] = size

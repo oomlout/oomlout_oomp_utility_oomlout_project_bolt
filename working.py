@@ -33,15 +33,17 @@ def create_recursive(**kwargs):
     folder = kwargs.get("folder", os.path.dirname(__file__))
     kwargs["folder"] = folder
     #if folder exists
+    filter = kwargs.get("filter", "")
     if os.path.exists(folder):
-        for item in os.listdir(folder):
-            directory_absolute = os.path.join(folder, item)
-            directory_absolute = directory_absolute.replace("\\","/")
-            if os.path.isdir(directory_absolute):
-                #if working.yaml exists in the folder
-                if os.path.exists(os.path.join(directory_absolute, "working.yaml")):
-                    kwargs["directory_absolute"] = directory_absolute
-                    create(**kwargs)
+        if filter in folder:
+            for item in os.listdir(folder):
+                directory_absolute = os.path.join(folder, item)
+                directory_absolute = directory_absolute.replace("\\","/")
+                if os.path.isdir(directory_absolute):
+                    #if working.yaml exists in the folder
+                    if os.path.exists(os.path.join(directory_absolute, "working.yaml")):
+                        kwargs["directory_absolute"] = directory_absolute
+                        create(**kwargs)
     else:
         print(f"no folder found at {folder}")
 
@@ -84,7 +86,8 @@ def generate(**kwargs):
             with open(yaml_file, 'w') as outfile:
                 yaml.dump(details, outfile, default_flow_style=False)
         else:   
-            print(".", end="")
+            pass
+        print(".", end="")
         
 
 
