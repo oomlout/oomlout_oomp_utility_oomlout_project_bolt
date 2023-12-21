@@ -42,6 +42,14 @@ def get_md5_split(details, deets):
     md5_6_last_3 = md5_6[3:]
     details["oomlout_bolt_md5_6_last_3"] = md5_6_last_3
     details["oomlout_bolt_md5_6_last_3_upper"] = md5_6_last_3.upper()
+    #now for md5_6 alpha
+    md5_6_alpha = details["md5_6_alpha"]
+    md5_6_alpha_first_3 = md5_6_alpha[0:3]
+    details["oomlout_bolt_md5_6_alpha_first_3"] = md5_6_alpha_first_3
+    details["oomlout_bolt_md5_6_alpha_first_3_upper"] = md5_6_alpha_first_3.upper()
+    md5_6_alpha_last_3 = md5_6_alpha[3:]
+    details["oomlout_bolt_md5_6_alpha_last_3"] = md5_6_alpha_last_3
+    details["oomlout_bolt_md5_6_alpha_last_3_upper"] = md5_6_alpha_last_3.upper()    
     return details
 
 
