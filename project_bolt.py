@@ -38,8 +38,10 @@ def get_md5_split(details, deets):
     md5_6 = details["md5_6"]
     md5_6_first_3 = md5_6[0:3]
     details["oomlout_bolt_md5_6_first_3"] = md5_6_first_3
+    details["oomlout_bolt_md5_6_first_3_upper"] = md5_6_first_3.upper()
     md5_6_last_3 = md5_6[3:]
     details["oomlout_bolt_md5_6_last_3"] = md5_6_last_3
+    details["oomlout_bolt_md5_6_last_3_upper"] = md5_6_last_3.upper()
     return details
 
 
@@ -84,12 +86,12 @@ def get_name_screw(details, deets, directory_absolute):
     if typ_source == "spacer":
         size = size_source.replace("_id_","X")
         size = size.replace("_mm_od","")
-        size = f"M{size}"
+        size = f"{size}".upper()
         details["oomlout_bolt_size_long"] = size
         details["oomlout_bolt_size"] = ""
     elif "_mm" in size_source:
         size = size_source.replace("_mm","")
-        size = f"M{size}"
+        size = f"{size}".upper()
         details["oomlout_bolt_size"] = size
 
     # get the color
@@ -107,7 +109,7 @@ def get_name_screw(details, deets, directory_absolute):
     length_source = deets["description_main"]
     length = ""
     if "_mm" in length_source:
-        length = length_source.replace("_mm","")
+        length = length_source.replace("_mm_length","").replace("_mm","")
         length = f"{length} mm"
     details["oomlout_bolt_length"] = length
     details["oomlout_bolt_length_no_unit"] = length.replace(" mm","")
