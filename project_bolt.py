@@ -79,6 +79,7 @@ def get_name_screw(details, deets, directory_absolute):
         size = size.replace("_mm_od","")
         size = f"M{size}"
         details["oomlout_bolt_size_long"] = size
+        details["oomlout_bolt_size"] = ""
     elif "_mm" in size_source:
         size = size_source.replace("_mm","")
         size = f"M{size}"
