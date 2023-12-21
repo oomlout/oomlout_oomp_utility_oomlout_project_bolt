@@ -35,7 +35,7 @@ def main(**kwargs):
 
 
 def get_md5_split(details, deets):
-    md5_6 = deets["md5_6"]
+    md5_6 = details["md5_6"]
     md5_6_first_3 = md5_6[0:3]
     details["oomlout_bolt_md5_6_first_3"] = md5_6_first_3
     md5_6_last_3 = md5_6[3:]
