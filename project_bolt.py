@@ -14,9 +14,13 @@ def main(**kwargs):
         
         # check whether to run
         matches_type = []
-        matches_type.append("screw_socket_cap")
         matches_type.append("screw_countersunk")
         matches_type.append("screw_flat_head")
+        matches_type.append("screw_socket_cap")        
+        matches_type.append("screw_self_tapping")        
+        matches_type.append("screw_thread_forming")
+        
+        
         matches_type.append("bolt")
         matches_type.append("set_screw")
         matches_type.append("spacer")
@@ -62,10 +66,16 @@ def get_name_screw(details, deets, directory_absolute):
     # get the type
     typ_source = deets["type"]
     typ_matches = []
-    typ_matches.append(["screw_machine_screw","Machine Screw"])
-    typ_matches.append(["screw_socket_cap","Socket Cap"])
     typ_matches.append(["screw_countersunk","Countersunk"])
     typ_matches.append(["screw_flat_head","Flat Head"])
+    typ_matches.append(["screw_machine_screw","Machine Screw"])
+    typ_matches.append(["screw_socket_cap","Socket Cap"])
+    typ_matches.append(["screw_self_tapping","Self Tapping"])
+    typ_matches.append(["screw_thread_forming","Thread Forming"])
+
+    
+    
+    
     typ_matches.append(["bolt","Bolt"])
     typ_matches.append(["set_screw","Set Screw"])
     typ_matches.append(["spacer","Spacer"])
