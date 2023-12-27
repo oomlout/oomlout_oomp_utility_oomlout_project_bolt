@@ -107,11 +107,16 @@ def get_name_screw(details, deets, directory_absolute):
         size = f"{size}".upper()
         details["oomlout_bolt_size_long"] = size
         details["oomlout_bolt_size"] = ""
-    #if size_source starts with an m an dthe next charachter is a digit
+    #if size_source starts with an m and the next charachter is a digit
     elif size_source.startswith("m") and size_source[1].isdigit():
         size = size_source.replace("_mm","")
         size = f"{size}".upper()
-        details["oomlout_bolt_size"] = size
+        #if size is longer than 2 characters
+        if len(size) > 2:
+            details["oomlout_bolt_size"] = ""
+            details["oomlout_bolt_size_long"] = size.replae("_",".")
+        else:
+            details["oomlout_bolt_size"] = size
 
     # get the color
     color_source = deets["color"]
