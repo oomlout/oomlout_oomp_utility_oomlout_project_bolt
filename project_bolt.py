@@ -32,7 +32,7 @@ def main(**kwargs):
                 run = True
 
         if run:
-            print(f"    generating for {directory_absolute}")
+            #print(f"    generating for {directory_absolute}")
             details = get_name_screw(details, deets, directory_absolute)        
             details = get_md5_split(details, deets)
             return details

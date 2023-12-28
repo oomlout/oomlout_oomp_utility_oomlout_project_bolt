@@ -91,7 +91,7 @@ def generate(**kwargs):
                 yaml.dump(details, outfile, default_flow_style=False)
         else:   
             pass
-        print(".", end="")
+        #print(".", end="")
         
 
 
