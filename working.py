@@ -46,7 +46,7 @@ def create_recursive(**kwargs):
                         kwargs["directory_absolute"] = directory_absolute
                         create(**kwargs)
                         count += 1
-                        if count > 100:
+                        if count % 100 == 0:
                             print(f"{count} parts processed")
     else:
         print(f"no folder found at {folder}")
