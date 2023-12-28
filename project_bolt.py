@@ -114,7 +114,7 @@ def get_name_screw(details, deets, directory_absolute):
         #if size is longer than 2 characters
         if len(size) > 2:
             details["oomlout_bolt_size"] = ""
-            details["oomlout_bolt_size_long"] = size.replae("_",".")
+            details["oomlout_bolt_size_long"] = size.replace("_",".")
         else:
             details["oomlout_bolt_size"] = size
 
