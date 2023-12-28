@@ -156,7 +156,7 @@ def get_name_screw(details, deets, directory_absolute):
     file_source = f"template/head_type_diagram_{head_type_source}.png"    
     file_source = os.path.join(file_base, file_source)
     file_destination = os.path.join(directory_absolute, "head_type_diagram.png")
-    print(f"    copying {file_source} to {file_destination}")
+    #print(f"    copying {file_source} to {file_destination}")
     if os.path.exists(file_source):
         details["oomlout_bolt_head_type_diagram"] = "head_type_diagram.png"
         if os.path.exists(file_destination):

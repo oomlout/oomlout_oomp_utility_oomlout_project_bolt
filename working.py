@@ -35,6 +35,7 @@ def create_recursive(**kwargs):
     #if folder exists
     filter = kwargs.get("filter", "")
     if os.path.exists(folder):        
+        count = 0
         for item in os.listdir(folder):
             if filter in item:
                 directory_absolute = os.path.join(folder, item)
@@ -44,6 +45,9 @@ def create_recursive(**kwargs):
                     if os.path.exists(os.path.join(directory_absolute, "working.yaml")):
                         kwargs["directory_absolute"] = directory_absolute
                         create(**kwargs)
+                        count += 1
+                        if count > 100:
+                            print(f"{count} parts processed")
     else:
         print(f"no folder found at {folder}")
 
