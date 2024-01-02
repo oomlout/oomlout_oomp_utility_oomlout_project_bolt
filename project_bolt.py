@@ -19,11 +19,10 @@ def main(**kwargs):
         matches_type.append("screw_socket_cap")        
         matches_type.append("screw_self_tapping")        
         matches_type.append("screw_thread_forming")
-        
-        
         matches_type.append("bolt")
         matches_type.append("set_screw")
         matches_type.append("spacer")
+        matches_type.append("standoff")
 
         typ = deets["type"]
         run = False
