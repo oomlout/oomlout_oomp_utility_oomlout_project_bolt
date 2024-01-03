@@ -143,7 +143,9 @@ def get_name_screw(details, deets, directory_absolute):
     head_type_matches.append(["flat_head","Flat"])
     head_type_matches.append(["phillips_head","Phillips"])
     head_type_matches.append(["pozidrive_head","Pozidrive"])
-    head_type_matches.append(["hex_head","Hex"])
+    head_type_matches.append(["hex_head","Hex Head"])
+    head_type_matches.append(["set_screw","Hex"])
+    head_type_matches.append(["bolt","Hex"])
     head_type = "Bolt"
     for match in head_type_matches:
         if match[0] in head_type_source:
