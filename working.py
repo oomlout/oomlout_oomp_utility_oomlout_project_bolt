@@ -11,6 +11,7 @@ if not os.path.exists(file_configuration):
     file_configuration = os.path.join(folder_configuration, "configuration_default.yaml")
 
 
+cnt_bolt = 1
 
 #import configuration
 configuration = {}
@@ -30,6 +31,7 @@ def main(**kwargs):
     create_recursive(**kwargs)
 
 def create_recursive(**kwargs):
+    global cnt_bolt
     folder = kwargs.get("folder", os.path.dirname(__file__))
     kwargs["folder"] = folder
     #if folder exists
@@ -45,9 +47,9 @@ def create_recursive(**kwargs):
                     if os.path.exists(os.path.join(directory_absolute, "working.yaml")):
                         kwargs["directory_absolute"] = directory_absolute
                         create(**kwargs)
-                        count += 1
-                        if count % 100 == 0:
-                            print(f"{count} parts processed")
+                        cnt_bolt += 1
+                        if cnt_bolt % 100 == 0:
+                            print(f".", end="", flush=True)
     else:
         print(f"no folder found at {folder}")
 
