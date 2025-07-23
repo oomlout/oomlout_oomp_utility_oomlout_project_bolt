@@ -92,7 +92,7 @@ def get_name_screw(details, deets, directory_absolute):
         details["oomlout_bolt_type_diagram_diagram"] = "type_diagram.png"
         if os.path.exists(file_destination):
             os.remove(file_destination)
-        print(f"    copying {file_source} to {file_destination}")
+        #print(f"    copying {file_source} to {file_destination}")
         shutil.copyfile(file_source, file_destination)
     else:
         print(f"    {file_source} not found")
